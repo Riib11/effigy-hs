@@ -1,0 +1,1 @@
+module Effigy.Typing where
