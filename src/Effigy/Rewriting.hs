@@ -59,12 +59,12 @@ reduce eOld = case eOld of
   --
   -- sequenced
   ValueSequence (e :>>: s) `DoWith` h@(ValueHandler hE hV hR) ->
-    let (x, k, ev) = hV in lambda k (lambda x ev :●: e) :●: (ValueSequence s `DoWith` h)
+    let (x, k, ev) = hV in k :=>: ((x :=>: ev) :●: e) :●: (ValueSequence s `DoWith` h)
   -- unsequenced
   e `DoWith` ValueHandler hE hV hR ->
     let (x, k, ev) = hV
         (g, er)    = hR
-    in  lambda k (lambda x ev :●: e) :●: lambda g er
+    in  (k :=>: ((x :=>: ev) :●: e)) :●: (g :=>: er)
 
   --
   -- functional foundations
