@@ -128,7 +128,7 @@ substitute eNew xOld eOld =
       recSeq = substituteSequence eNew xOld
       recHan = substituteHandler eNew xOld
   in  case eOld of
-        ValueVariable  x       -> if x == xOld then eNew else eOld
+        ((:#:) x)              -> if x == xOld then eNew else eOld
         ValuePrimitive pv      -> eOld
         x :=>: e               -> if x == xOld then eOld else x :=>: rec e
         ValueSequence s        -> ValueSequence $ recSeq s

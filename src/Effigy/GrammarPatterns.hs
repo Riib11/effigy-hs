@@ -3,9 +3,15 @@ module Effigy.GrammarPatterns where
 
 import Effigy.Grammar
 
+
+{-
+  # Patterns
+-}
+
+
 -- Expression
 pattern e :●: e' = Application e e'
-pattern ValueVariable v = Value (Variable v)
+pattern (:#:) v = Value (Variable v)
 pattern ValuePrimitive pv = Value (PrimitiveValue pv)
 pattern ValueSequence s = Value (Sequence s)
 pattern ValueHandler hE hV hR = Value (HandlerValue (Handler hE hV hR))
@@ -17,3 +23,11 @@ pattern e :>>: s = Sequenced e s
 pattern t :->: t' = Function t t'
 pattern 𝐇 ϕs t = HandlerType ϕs t
 pattern 𝐄 ϕs t = EffectType ϕs t
+
+
+{-
+  # Abbreviations
+-}
+
+
+-- Expressions

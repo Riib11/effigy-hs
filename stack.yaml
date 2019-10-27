@@ -2,4 +2,4 @@ resolver: lts-14.9
 packages:
 - .
 ghc-options:
-  "$locals": -XUnicodeSyntax -XLambdaCase -XBlockArguments -XTemplateHaskell -XFlexibleContexts -XMultiWayIf -XPatternSynonyms
+  "$locals": -XUnicodeSyntax -XLambdaCase -XBlockArguments -XTemplateHaskell -XFlexibleContexts -XMultiWayIf -XPatternSynonyms -XPostfixOperators -XKindSignatures -XMultiParamTypeClasses -XFlexibleInstances -XUndecidableInstances -XAllowAmbiguousTypes
